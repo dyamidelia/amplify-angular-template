@@ -1,0 +1,123 @@
+/* Container for the columns */
+.columns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-column, .right-column {
+  width: 45%;
+}
+
+.day-theme {
+  background-color: #f0f8ff;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.night-theme {
+  background-color: #2c3e50;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+}
+
+.pill-toggle label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+/* Custom Toggle Switch */
+input[type="checkbox"] {
+  display: none;
+}
+
+.custom-toggle, .night-toggle {
+  width: 50px;
+  height: 25px;
+  background-color: lightgray;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.custom-toggle::before, .night-toggle::before {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background-color: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  transition: left 0.3s;
+}
+
+input[type="checkbox"]:checked + .custom-toggle::before, input[type="checkbox"]:checked + .night-toggle::before {
+  left: 25px;
+}
+
+input[type="checkbox"]:checked + .custom-toggle {
+  background-color: #4caf50;
+}
+
+input[type="checkbox"]:checked + .night-toggle {
+  background-color: #ff5722; /* Night toggle color, not green */
+}
+
+/* Sub-toggles positioned to the right */
+.sub-toggles {
+  display: flex;
+  flex-direction: column;
+}
+
+.sub-toggle-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 40px;
+}
+
+.sub-toggle {
+  background-color: lightgray;
+  width: 40px;
+  height: 20px;
+  position: relative;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.sub-toggle::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 50%;
+  top: 50%;
+  left: 1px;
+  transform: translateY(-50%);
+  transition: left 0.3s;
+}
+
+input[type="checkbox"]:checked + .sub-toggle {
+  background-color: #4caf50;
+}
+
+input[type="checkbox"]:checked + .sub-toggle::before {
+  left: 20px;
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.time-display {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}

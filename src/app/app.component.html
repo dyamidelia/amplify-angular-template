@@ -1,1 +1,99 @@
-<app-todos></app-todos>
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Peanut Butter Pill Tracker
+  </h1>
+  <img width="300" src="https://cdn.discordapp.com/attachments/1065510230093484052/1298463810243530834/deedee3671_a_dog_logo_paw_prints_solid_white_background_100ea1c1-5908-43eb-ba23-04d9c4f5ef07.png?ex=6719a828&is=671856a8&hm=b8a802bf798d9105700b5e9d69f106d3b2a881fa95a418405fcc617905a54115&">
+</div>
+<div class="container">
+  <div class="columns">
+    <!-- Left Column: Day Theme -->
+    <div class="left-column day-theme">
+      <h2>Day Pill Tracker</h2>
+
+      <!-- Day Toggle with Sub-Toggles -->
+      <div class="pill-toggle">
+        <label class="toggle-wrapper">
+          <input type="checkbox" [(ngModel)]="dayMainToggle" (change)="saveState()">
+          <span class="custom-toggle"></span>
+          <span *ngIf="!editMode">{{ dayMainToggleLabel }}</span>
+          <input *ngIf="editMode" [(ngModel)]="dayMainToggleLabel" (input)="saveState()" />
+        </label>
+
+        <!-- Sub-Toggles -->
+        <div *ngIf="dayMainToggle" class="sub-toggles">
+          <label class="sub-toggle-wrapper">
+            <span *ngIf="!editMode">{{ daySubToggle1Label }}</span>
+            <input *ngIf="editMode" [(ngModel)]="daySubToggle1Label" (input)="saveState()" />
+            <input type="checkbox" [(ngModel)]="daySubToggle1" (change)="saveState()">
+            <span class="custom-toggle sub-toggle"></span>
+          </label>
+          <label class="sub-toggle-wrapper">
+            <span *ngIf="!editMode">{{ daySubToggle2Label }}</span>
+            <input *ngIf="editMode" [(ngModel)]="daySubToggle2Label" (input)="saveState()" />
+            <input type="checkbox" [(ngModel)]="daySubToggle2" (change)="saveState()">
+            <span class="custom-toggle sub-toggle"></span>
+          </label>
+          <label class="sub-toggle-wrapper">
+            <span *ngIf="!editMode">{{ daySubToggle3Label }}</span>
+            <input *ngIf="editMode" [(ngModel)]="daySubToggle3Label" (input)="saveState()" />
+            <input type="checkbox" [(ngModel)]="daySubToggle3" (change)="saveState()">
+            <span class="custom-toggle sub-toggle"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Night Theme -->
+    <div class="right-column night-theme">
+      <h2>Night Pill Tracker</h2>
+
+      <!-- Night Toggle with Sub-Toggles -->
+      <div class="pill-toggle">
+        <label class="toggle-wrapper">
+          <input type="checkbox" [(ngModel)]="nightMainToggle" (change)="saveState()">
+          <span class="night-toggle"></span>
+          <span *ngIf="!editMode">{{ nightMainToggleLabel }}</span>
+          <input *ngIf="editMode" [(ngModel)]="nightMainToggleLabel" (input)="saveState()" />
+        </label>
+
+        <!-- Sub-Toggles -->
+        <div *ngIf="nightMainToggle" class="sub-toggles">
+          <label class="sub-toggle-wrapper">
+            <span *ngIf="!editMode">{{ nightSubToggle1Label }}</span>
+            <input *ngIf="editMode" [(ngModel)]="nightSubToggle1Label" (input)="saveState()" />
+            <input type="checkbox" [(ngModel)]="nightSubToggle1" (change)="saveState()">
+            <span class="night-toggle sub-toggle"></span>
+          </label>
+          <label class="sub-toggle-wrapper">
+            <span *ngIf="!editMode">{{ nightSubToggle2Label }}</span>
+            <input *ngIf="editMode" [(ngModel)]="nightSubToggle2Label" (input)="saveState()" />
+            <input type="checkbox" [(ngModel)]="nightSubToggle2" (change)="saveState()">
+            <span class="night-toggle sub-toggle"></span>
+          </label>
+          <label class="sub-toggle-wrapper">
+            <span *ngIf="!editMode">{{ nightSubToggle3Label }}</span>
+            <input *ngIf="editMode" [(ngModel)]="nightSubToggle3Label" (input)="saveState()" />
+            <input type="checkbox" [(ngModel)]="nightSubToggle3" (change)="saveState()">
+            <span class="night-toggle sub-toggle"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reset Button and Edit Mode Toggle -->
+  <div class="actions">
+    <label>
+      <input type="checkbox" [(ngModel)]="editMode">
+      <span class="custom-toggle"></span>
+      Edit Mode
+    </label>
+    <button (click)="resetToggles()">Reset</button>
+  </div>
+
+  <!-- Display the current time -->
+  <div class="time-display">
+    <p>Current Time: {{ currentTime | date: 'shortTime' }}</p>
+  </div>
+</div>
